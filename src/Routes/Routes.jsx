@@ -31,10 +31,6 @@ const Routes = createBrowserRouter([
         loader: () => fetch("http://localhost:5000/services"),
       },
       {
-        path: "catalogue",
-        element: <Catalogue />,
-      },
-      {
         path: "addService",
         element: (
           <PrivetsRoutes>

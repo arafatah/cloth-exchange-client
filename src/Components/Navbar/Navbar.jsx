@@ -34,12 +34,12 @@ const Navbar = () => {
 
           <div className="ml-auto mr-8 hidden items-center gap-6 lg:flex">
             <NavLink
-              to="/catalogue"
+              to="/services"
               className={({ isActive }) =>
                 isActive ? "btn btn-primary btn-sm" : "btn btn-sm btn-ghost"
               }
             >
-              Manage Service
+              Services
             </NavLink>
             {user && <NavLink
               to="/manageService"
