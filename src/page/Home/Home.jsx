@@ -1,3 +1,4 @@
+import ShowService from "../ShowService/ShowService";
 import Banner from "./Banner/Banner";
 import Sponsor from "./Sponsor/Sponsor";
 
@@ -7,7 +8,7 @@ const Home = () => {
         <div>
             <Banner/>
             <Sponsor></Sponsor>
-
+            <ShowService/>
         </div>
     );
 };

@@ -4,7 +4,7 @@ import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-  const [userPic, setUserPic] = useState(null);
+  const [userPic, setUserPic] = useState();
 
   useEffect(() => {
     const userPicGet = async () => {
@@ -49,26 +49,26 @@ const Navbar = () => {
             >
               FASHION
             </NavLink>
-            <NavLink
-              to="/home"
+            {user && <NavLink
+              to="/cart"
               className={({ isActive }) =>
                 isActive ? "btn btn-primary btn-sm" : "btn btn-sm btn-ghost"
               }
             >
               <a className="flex items-center" href="#">
-                FAVOURITE
+              My Schedules
               </a>
-            </NavLink>
-            <NavLink
-              to="/home"
+            </NavLink>}
+            {user && <NavLink
+              to="/addService"
               className={({ isActive }) =>
                 isActive ? "btn btn-primary btn-sm" : "btn btn-sm btn-ghost"
               }
             >
               <a className="flex items-center" href="#">
-                LIFESTYLE
+                Add Service
               </a>
-            </NavLink>
+            </NavLink>}
           </div>
           {user?.email ? (
             <div>
