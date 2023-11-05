@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const SingleService = () => {
   const service = useLoaderData();
@@ -57,7 +58,9 @@ const SingleService = () => {
 
   return (
     <div>
-        
+        <Helmet>
+      <title>FASHION | Checkout</title>
+      </Helmet>
       <div className="max-w-xl mx-auto p-4">
         <div className="bg-white rounded-lg p-4 shadow-md">
           <div className="relative aspect-w-16 aspect-h-9 mb-4">

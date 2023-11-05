@@ -9,6 +9,7 @@ import PrivetsRoutes from "./PrivetRoutes/PrivetsRoutes";
 import ShowService from "../page/ShowService/ShowService";
 import SingleService from "../page/SingleService/SingleService";
 import ShowCart from "../page/ShowCart/ShowCart";
+import ManageService from "../page/ManageService/ManageService";
 
 const Routes = createBrowserRouter([
   {
@@ -21,36 +22,57 @@ const Routes = createBrowserRouter([
       },
       {
         path: "register",
-        element: <Register/>,
+        element: <Register />,
       },
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:5000/services')
-
+        loader: () => fetch("http://localhost:5000/services"),
       },
       {
         path: "catalogue",
-        element: <Catalogue/>
+        element: <Catalogue />,
       },
       {
         path: "addService",
-        element: <PrivetsRoutes><AddService></AddService></PrivetsRoutes>
+        element: (
+          <PrivetsRoutes>
+            <AddService></AddService>
+          </PrivetsRoutes>
+        ),
       },
       {
-        path: '/',
+        path: "/",
         element: <ShowService></ShowService>,
-        loader: () => fetch('http://localhost:5000/services')
+        loader: () => fetch("http://localhost:5000/services"),
       },
       {
         path: "showService/:id",
-        element: <PrivetsRoutes><SingleService></SingleService></PrivetsRoutes>,
-        loader: ({params}) => fetch(`http://localhost:5000/service/${params.id}`)
+        element: (
+          <PrivetsRoutes>
+            <SingleService></SingleService>
+          </PrivetsRoutes>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/service/${params.id}`),
       },
       {
         path: "/cart",
-        element: <PrivetsRoutes><ShowCart></ShowCart></PrivetsRoutes>
-      }
+        element: (
+          <PrivetsRoutes>
+            <ShowCart></ShowCart>
+          </PrivetsRoutes>
+        ),
+      },
+      {
+        path: "/manageService",
+        element: (
+          <PrivetsRoutes>
+            <ManageService />
+          </PrivetsRoutes>
+        ),
+        loader: () => fetch("http://localhost:5000/services"),
+      },
     ],
   },
 ]);

@@ -39,16 +39,16 @@ const Navbar = () => {
                 isActive ? "btn btn-primary btn-sm" : "btn btn-sm btn-ghost"
               }
             >
-              CATALOGUE
+              Manage Service
             </NavLink>
-            <NavLink
-              to="/home"
+            {user && <NavLink
+              to="/manageService"
               className={({ isActive }) =>
                 isActive ? "btn btn-primary btn-sm" : "btn btn-sm btn-ghost"
               }
             >
-              FASHION
-            </NavLink>
+              Manage Service
+            </NavLink>}
             {user && <NavLink
               to="/cart"
               className={({ isActive }) =>

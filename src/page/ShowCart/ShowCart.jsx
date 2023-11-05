@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ServiceCart from "./ServiceCart";
+import { Helmet } from "react-helmet-async";
 
 const ShowCart = () => {
   const [cart, setCart] = useState([]);
@@ -16,6 +17,9 @@ const ShowCart = () => {
 
   return (
     <div className="flex flex-wrap justify-center">
+        <Helmet>
+      <title>FASHION | Cart</title>
+      </Helmet>
       {cart.length === 0 ? (
         <p>You have no service at cart</p>
       ) : (
