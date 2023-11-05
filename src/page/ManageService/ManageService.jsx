@@ -7,6 +7,9 @@ const ManageService = () => {
   const services = useLoaderData();
 
   const [cartItems, setCartItems] = useState(services);
+
+
+  
   const handleDelete = (itemId) => {
     fetch(`http://localhost:5000/delete/${itemId}`, {
       method: "DELETE",

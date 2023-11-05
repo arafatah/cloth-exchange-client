@@ -10,6 +10,7 @@ import ShowService from "../page/ShowService/ShowService";
 import SingleService from "../page/SingleService/SingleService";
 import ShowCart from "../page/ShowCart/ShowCart";
 import ManageService from "../page/ManageService/ManageService";
+import UpdateService from "../page/ManageService/UpdateService";
 
 const Routes = createBrowserRouter([
   {
@@ -72,6 +73,15 @@ const Routes = createBrowserRouter([
           </PrivetsRoutes>
         ),
         loader: () => fetch("http://localhost:5000/services"),
+      },
+      {
+        path: "/update/:id",
+        element: (
+          <PrivetsRoutes>
+            <UpdateService />
+          </PrivetsRoutes>
+        ),
+        loader: ({params}) => fetch(`http://localhost:5000/service/${params.id}`),
       },
     ],
   },

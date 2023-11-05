@@ -1,10 +1,8 @@
-import { useState } from "react";
-import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const ServiceCard = ({ serviceDetail, handleDelete }) => {
-  const { _id, yourName, serviceName, description, price, serviceArea, image } =
+  const { _id,  serviceName, price, image } =
     serviceDetail;
- 
 
   return (
     <div>
@@ -17,9 +15,11 @@ const ServiceCard = ({ serviceDetail, handleDelete }) => {
         </div>
 
         <div className="flex items-center justify-between px-6 py-4 bg-gray-100">
-          <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-            Edit
-          </button>
+          <Link to={`/update/${_id}`}>
+            <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+              Edit
+            </button>
+          </Link>
 
           <button
             onClick={() => {
