@@ -24,7 +24,7 @@ const ShowService = () => {
               <img
                 src={serviceDetail.image}
                 alt={serviceDetail.yourName}
-                className="w-full h-80 object-cover rounded-md"
+                className="w-full h-[600px] object-cover rounded-md"
               />
 
               <div className="flex items-center mt-4 gap-3">
