@@ -27,9 +27,13 @@ const ShowService = () => {
                 className="w-full h-80 object-cover rounded-md"
               />
 
+              <div className="flex items-center mt-4 gap-3">
+              <img className="h-14 w-12 rounded-xl" src={serviceDetail.authorPhoto} alt="" />
               <h2 className="text-lg font-semibold mt-2">
-                Name: {serviceDetail.yourName}
+                Provider Name:{serviceDetail.yourName}
               </h2>
+              
+              </div>
               <h3 className="text-xl font-semibold mt-2">
                 Name of the product: {serviceDetail.serviceName}
               </h3>

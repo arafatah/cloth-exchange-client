@@ -1,8 +1,12 @@
+import Marquee from "react-fast-marquee";
+
 const Sponsor = () => {
   return (
     <div className="my-9">
       <div className="bg-[#EBD96B] py-8">
-        <div className="flex items-center justify-center gap-8">
+          <Marquee>
+        <div className="flex items-center justify-center md:gap-36">
+
           <img
             src="https://i.ibb.co/J5wMqHZ/Rectangle-36.png
 "
@@ -34,6 +38,7 @@ const Sponsor = () => {
             alt=""
           />
         </div>
+          </Marquee>
       </div>
     </div>
   );
