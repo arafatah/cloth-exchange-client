@@ -12,11 +12,13 @@ import ShowCart from "../page/ShowCart/ShowCart";
 import ManageService from "../page/ManageService/ManageService";
 import UpdateService from "../page/ManageService/UpdateService";
 import ShowAllService from "../page/ShowService/ShowAllService";
+import ErrorPage from "../Components/ErrorPage/ErrorPage";
 
 const Routes = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement:<ErrorPage/>,
     children: [
       {
         path: "/login",
