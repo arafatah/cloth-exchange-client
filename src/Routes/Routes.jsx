@@ -11,6 +11,7 @@ import SingleService from "../page/SingleService/SingleService";
 import ShowCart from "../page/ShowCart/ShowCart";
 import ManageService from "../page/ManageService/ManageService";
 import UpdateService from "../page/ManageService/UpdateService";
+import ShowAllService from "../page/ShowService/ShowAllService";
 
 const Routes = createBrowserRouter([
   {
@@ -41,6 +42,11 @@ const Routes = createBrowserRouter([
       {
         path: "/",
         element: <ShowService></ShowService>,
+        loader: () => fetch("http://localhost:5000/services"),
+      },
+      {
+        path: "/services",
+        element: <ShowAllService></ShowAllService>,
         loader: () => fetch("http://localhost:5000/services"),
       },
       {
