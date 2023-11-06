@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom';
 import { FaHome } from 'react-icons/fa';
 
-const ErrorPage = ({ }) => {
+const ErrorPage = () => {
   return (
     <div className="container mx-auto h-screen flex flex-col justify-center items-center">
       
