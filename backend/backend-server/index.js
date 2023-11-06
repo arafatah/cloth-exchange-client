@@ -90,6 +90,20 @@ async function run() {
       res.json(result);
     });
 
+    app.get("/orders/:email", async (req, res) => {
+      const email = req.params.email;
+      const query = { email: email };
+      const cursor = cartCollection.find(query);
+      const orders = await cursor.toArray();
+      res.send(orders);
+    });
+
+    // app.get('/orders/:email', async(req,res)=>{
+    //   console.log(req.params.email);
+    //   const result = await cartCollection.find({email: req.params.email}).toArray();
+    //   res.send(result);
+    // });
+
     app.get("/orders", async (req, res) => {
       const cursor = cartCollection.find({});
       const orders = await cursor.toArray();

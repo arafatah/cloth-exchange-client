@@ -17,41 +17,52 @@ const ShowService = () => {
           {service.map((serviceDetail, index) => (
             <div
               key={index}
-              className={`bg-white p-4 rounded-lg shadow-md ${
+              className={`bg-white p-4 rounded-lg shadow-md  ${
                 index >= 6 ? "hidden" : ""
               }`}
             >
-              <img
-                src={serviceDetail.image}
-                alt={serviceDetail.yourName}
-                className="w-full h-[600px] object-cover rounded-md"
-              />
-              <h3 className="text-2xl font-medium mt-2 mx-5 text-black">
-                 {serviceDetail.serviceName}
-              </h3>
-              <h3 className="text-base font-light  mx-5 text-black">
-                {serviceDetail.description}
-              </h3>
-              
-              <h3 className="text-base font-light mt-3 mx-5 text-black">
-                {serviceDetail.serviceArea}
-              </h3>
-              <h3 className="text-base  font-medium mx-5 text-green-500">
-                Price: ${serviceDetail.price}
-              </h3>
-              <div className="flex items-center mt-4 mb-3 mx-5 gap-3">
-              <img className="h-12 w-12 rounded-full" src={serviceDetail.authorPhoto} alt="" />
-              <h2 className="text-base font-medium text-black mt-2">
-                {serviceDetail.yourName}
-              </h2>
+              <div className="">
+                <div className="">
+                  <img
+                    src={serviceDetail.image}
+                    alt={serviceDetail.yourName}
+                    className="w-full h-[600px] object-cover rounded-md"
+                  />
+                  <h3 className="text-2xl text-deep-orange-900 font-semibold mt-2 mx-5">
+                    {serviceDetail.serviceName}
+                  </h3>
+                  <h3 className="text-base font-light  mx-5 text-black">
+                    {serviceDetail.description}
+                  </h3>
+
+                  <h3 className="text-base font-light mt-3 mx-5 text-black">
+                    {serviceDetail.serviceArea}
+                  </h3>
+                  <h3 className="text-base  font-medium mx-5 text-green-500">
+                    Price: ${serviceDetail.price}
+                  </h3>
+                  <div className="flex items-center mt-4 mb-3 mx-5 gap-3">
+                    <img
+                      className="h-12 w-12 rounded-full"
+                      src={serviceDetail.authorPhoto}
+                      alt=""
+                    />
+                    <h2 className="text-base font-medium text-black mt-2">
+                      {serviceDetail.yourName}
+                    </h2>
+                  </div>
+                </div>
+
+                <div>
+                  <Link
+                    to={`/showService/${serviceDetail._id}`}
+                    className="flex justify-end btn btn-ghost text-black"
+                  >
+                    Know more
+                    <FaArrowRightLong />
+                  </Link>
+                </div>
               </div>
-              <Link
-                to={`/showService/${serviceDetail._id}`}
-                className="flex justify-end btn btn-ghost text-black"
-              >
-                Know more
-                <FaArrowRightLong />
-              </Link>
             </div>
           ))}
         </div>
