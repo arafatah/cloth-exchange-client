@@ -1,7 +1,7 @@
 const ConfirmServices = ({ booking, handleBookingConfirm }) => {
   console.log(booking);
   const { _id, serviceName, price, image, status, email } = booking;
-  
+
   function toggleDropdown(dropdownId) {
     const dropdown = document.getElementById(dropdownId);
   
@@ -69,7 +69,7 @@ const ConfirmServices = ({ booking, handleBookingConfirm }) => {
       </button>
     </div>
   </td>
-</tr>
+</tr> 
 
   );
 };
