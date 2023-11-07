@@ -107,6 +107,12 @@ async function run() {
       res.json(result);
     });
 
+    app.get("/orders", async (req, res) => {
+      const cursor = cartCollection.find({});
+      const orders = await cursor.toArray();
+      res.send(orders);
+    });
+
     app.get("/orders/:email", async (req, res) => {
       const email = req.params.email;
       const query = { email: email };
@@ -114,6 +120,38 @@ async function run() {
       const orders = await cursor.toArray();
       res.send(orders);
     });
+
+    app.get("/serviceMail/:serviceEmail", async (req, res) => {
+      const serviceEmail = req.params.serviceEmail;
+      const query = { serviceEmail: serviceEmail };
+      // console.log(serviceEmail);
+      const cursor = cartCollection.find(query);
+      const orders = await cursor.toArray();
+      res.send(orders);
+      // console.log(orders);
+    });
+
+    app.patch("/updateOrder/:id", async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) };
+      const updatedOrder = req.body;
+      // console.log(updatedOrder);
+      const options = { upsert: true };
+      const updateDoc = {
+        $set: {
+          status: updatedOrder.status,
+          
+        },
+      };
+      const result = await cartCollection.updateOne(
+        query,
+        updateDoc,
+        options
+      );
+
+      res.json(result);
+    });
+
 
     // app.get('/orders/:email', async(req,res)=>{
     //   console.log(req.params.email);

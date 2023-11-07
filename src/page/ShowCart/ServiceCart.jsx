@@ -1,7 +1,7 @@
 import React from "react";
 
 const ServiceCart = ({ service, handleDelete }) => {
-console.log(service);
+
   return (
     <div className="bg-white rounded-lg shadow-md w-64 p-4 m-4">
       

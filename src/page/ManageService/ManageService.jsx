@@ -5,19 +5,18 @@ import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 
 const ManageService = () => {
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [services, setServices] = useState([]);
   const [cartItems, setCartItems] = useState([]);
-console.log(cartItems);
+  console.log(cartItems);
   useEffect(() => {
     fetch(`http://localhost:5000/services/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
-        setServices(data)
-        setCartItems(data)
+        setServices(data);
+        setCartItems(data);
       });
   }, [user?.email]);
-
 
   const handleDelete = (itemId) => {
     Swal.fire({
@@ -51,15 +50,19 @@ console.log(cartItems);
       <Helmet>
         <title>FASHION | Manage Service</title>
       </Helmet>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {cartItems.map((serviceDetail, index) => (
-          <ServiceCard
-            key={index}
-            serviceDetail={serviceDetail}
-            handleDelete={handleDelete}
-          ></ServiceCard>
-        ))}
-      </div>
+      {cartItems.length === 0 ? (
+        <p>You Have No Service Available</p>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {cartItems.map((serviceDetail, index) => (
+            <ServiceCard
+              key={index}
+              serviceDetail={serviceDetail}
+              handleDelete={handleDelete}
+            ></ServiceCard>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

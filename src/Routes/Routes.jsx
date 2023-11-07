@@ -67,6 +67,7 @@ const Routes = createBrowserRouter([
             <ShowCart></ShowCart>
           </PrivetsRoutes>
         ),
+        loader: () => fetch("http://localhost:5000/orders"),
       },
       {
         path: "/manageService",
