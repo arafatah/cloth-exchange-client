@@ -18,6 +18,12 @@ const Navbar = () => {
     logOut();
   };
 
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
+
   return (
     <div>
       <nav className="sticky inset-0 z-10 block h-max w-full max-w-full rounded-none border border-white/100 bg-white  py-2 px-4 text-white shadow-md backdrop-blur-2xl backdrop-saturate-200 lg:px-8 lg:py-4">
@@ -49,35 +55,68 @@ const Navbar = () => {
             >
               Services
             </NavLink>
-            {user && <NavLink
-              to="/manageService"
-              className={({ isActive }) =>
-                isActive ? "btn btn-primary btn-sm" : "btn btn-sm btn-ghost"
-              }
-            >
-              Manage Service
-            </NavLink>}
-            {user && <NavLink
-              to="/cart"
-              className={({ isActive }) =>
-                isActive ? "btn btn-primary btn-sm" : "btn btn-sm btn-ghost"
-              }
-            >
-              <a className="flex items-center" href="#">
-              My Schedules
-              </a>
-            </NavLink>}
-            {user && <NavLink
-              to="/addService"
-              className={({ isActive }) =>
-                isActive ? "btn btn-primary btn-sm" : "btn btn-sm btn-ghost"
-              }
-            >
-              <a className="flex items-center" href="#">
-                Add Service
-              </a>
-            </NavLink>}
           </div>
+
+          <div className="relative group">
+            <button
+              onClick={toggleDropdown} // Add an event handler to toggle the dropdown
+              className="btn btn-sm btn-ghost"
+            >
+              <a className="flex items-center" href="#">
+                Dropdown
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 ml-2 transform group-hover:rotate-0 group-focus:rotate-0 group-active:rotate-180 transition-transform"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </a>
+            </button>
+            <ul
+              style={{ display: dropdownOpen ? "block" : "none" }}
+              className="dropdown-content text-white z-10 menu p-2 shadow bg-base-100 rounded-box w-36 mt-2 absolute left-0"
+            >
+              {user && (
+                <NavLink
+                  to="/manageService"
+                  className={({ isActive }) =>
+                    isActive ? "btn btn-primary btn-sm" : "btn btn-sm btn-ghost"
+                  }
+                >
+                  Manage Service
+                </NavLink>
+              )}
+              {user && (
+                <NavLink
+                  to="/cart"
+                  className={({ isActive }) =>
+                    isActive ? "btn btn-primary btn-sm" : "btn btn-sm btn-ghost"
+                  }
+                >
+                  My Schedules
+                </NavLink>
+              )}
+              {user && (
+                <NavLink
+                  to="/addService"
+                  className={({ isActive }) =>
+                    isActive ? "btn btn-primary btn-sm" : "btn btn-sm btn-ghost"
+                  }
+                >
+                  Add Service
+                </NavLink>
+              )}
+            </ul>
+          </div>
+
           {user?.email ? (
             <div>
               <div className="dropdown dropdown-bottom dropdown-end">
