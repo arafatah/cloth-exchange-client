@@ -59,13 +59,13 @@ const AddService = () => {
       </Helmet>
       <div className="flex items-center justify-center py-6">
         <h2
-          className="text-3xl text-green-500 font-semibold bg-black rounded-lg px-6 py-4
+          className="text-4xl font-extrabold text-white bg-gradient-to-r from-green-500 to-blue-500 rounded-lg p-6 shadow-lg
                 "
         >
           ADD A ITEM HERE...
         </h2>
       </div>
-      <div className="container mx-auto">
+      <div className="container mx-auto my-7">
         <form onSubmit={handleSubmit}>
           <div className="relative z-0 w-full mb-6 group">
             <input

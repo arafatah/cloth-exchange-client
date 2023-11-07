@@ -1,12 +1,23 @@
-import { useLoaderData } from "react-router-dom";
 import ServiceCard from "./ServiceCard";
 import Swal from "sweetalert2";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
+import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 
 const ManageService = () => {
-  const services = useLoaderData();
+  const {user} = useContext(AuthContext);
+  const [services, setServices] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
+console.log(cartItems);
+  useEffect(() => {
+    fetch(`http://localhost:5000/services/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setServices(data)
+        setCartItems(data)
+      });
+  }, [user?.email]);
 
-  const [cartItems, setCartItems] = useState(services);
 
   const handleDelete = (itemId) => {
     Swal.fire({
@@ -36,8 +47,11 @@ const ManageService = () => {
   };
   console.log(services);
   return (
-    <div className="my-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div className="container mx-auto my-8">
+      <Helmet>
+        <title>FASHION | Manage Service</title>
+      </Helmet>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {cartItems.map((serviceDetail, index) => (
           <ServiceCard
             key={index}

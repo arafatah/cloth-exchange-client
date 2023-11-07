@@ -3,7 +3,6 @@ import MainLayout from "../Components/Layout/MainLayout";
 import Login from "../Components/Login/Login";
 import Register from "../Components/Register/Register";
 import Home from "../page/Home/Home";
-import Catalogue from "../page/Catalogue/Catalogue";
 import AddService from "../page/AddService/AddService";
 import PrivetsRoutes from "./PrivetRoutes/PrivetsRoutes";
 import ShowService from "../page/ShowService/ShowService";
@@ -76,7 +75,6 @@ const Routes = createBrowserRouter([
             <ManageService />
           </PrivetsRoutes>
         ),
-        loader: () => fetch("http://localhost:5000/services"),
       },
       {
         path: "/update/:id",

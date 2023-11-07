@@ -3,13 +3,30 @@ import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 import { useContext } from "react";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
+import { FaGoogle } from "react-icons/fa6";
 
 const Login = () => {
 
     const location = useLocation();
     const navigate = useNavigate()
-    const { signIn } = useContext(AuthContext);
+    const { signIn, googleSignIn } = useContext(AuthContext);
 
+    const handleSocialSign = (media) => {
+      media()
+        .then((res) => {
+          console.log(res.user);
+          navigate(location?.state ? location.state : "/");
+          Swal.fire({
+            title: "Registered!",
+            text: "Register successfully!",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    };
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -142,7 +159,15 @@ const Login = () => {
             </Link>
           </p>
         </form>
+        <button
+        onClick={() => handleSocialSign(googleSignIn)}
+        className="w-full mx-auto btn my-10"
+      >
+        <FaGoogle></FaGoogle>Sign In With Google
+      </button>
       </div>
+
+
     </div>
   );
 };

@@ -20,8 +20,8 @@ const SingleService = () => {
     const comment = form.comment.value;
     const date = form.date.value;
     const image = form.image.value;
-
-
+    const serviceEmail = form.serviceEmail.value;
+    
     const service = {
       serviceName,
       yourName,
@@ -29,9 +29,14 @@ const SingleService = () => {
       price,
       date,
       comment,
-      image
-     
+      image,
+      serviceEmail,
+      
     };
+    console.log(service);
+
+
+
     console.log(service);
 
     fetch("http://localhost:5000/addOrder", {
@@ -70,9 +75,24 @@ const SingleService = () => {
               className="object-cover rounded-lg"
             />
           </div>
-          <h3 className="text-xl font-semibold">{service.name}</h3>
-          <p className="text-gray-500 mb-2">{service.serviceName}</p>
-          <p className="text-gray-600 mb-2">{service.description}</p>
+          {/* <h3 className="text-2xl font-medium">{service.name}</h3> */}
+          <p className="text-2xl font-medium text-orange-900 mb-2">{service.serviceName}</p>
+          <p className="text-blue-gray-900 mb-2">{service.description}</p>
+          <div className="flex items-center mt-4 mb-3 gap-3">
+            <img
+              className="h-12 w-12 rounded-full"
+              src={service.authorPhoto}
+              alt=""
+            />
+            <h2 className="text-base font-medium text-black mt-2">
+              {service.yourName}
+            </h2>
+          </div>
+          <div>
+            <h3 className="text-lg text-black font-medium">Service Area</h3>
+            <p className="text-base text-black font-normal mb-2">{service.serviceArea}</p>
+          </div>
+          
           <div className="flex justify-between items-center mt-4">
             <p className="text-lg text-blue-600">${service.price}</p>
             {/* Open the modal using document.getElementById('ID').showModal() method */}
@@ -113,9 +133,9 @@ const SingleService = () => {
                       </div>
                       <div className="relative h-11 w-full min-w-[200px]">
                         <input
-                          defaultValue={user.email}
+                          defaultValue={service.email}
                           readOnly
-                          name="email"
+                          name="serviceEmail"
                           className="peer h-full w-full rounded-md border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                           placeholder=" "
                         />
@@ -156,7 +176,7 @@ const SingleService = () => {
                           placeholder=" "
                         />
                         <label className="behtmlFore:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.1] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-pink-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:!border-pink-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:!border-pink-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-                          You Comment here
+                        Special instruction
                         </label>
                       </div>
                       <div className="relative h-11 w-full min-w-[200px]">

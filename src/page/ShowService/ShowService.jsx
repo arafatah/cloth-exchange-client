@@ -28,20 +28,22 @@ const ShowService = () => {
                     alt={serviceDetail.yourName}
                     className="w-full h-[600px] object-cover rounded-md"
                   />
-                  <h3 className="text-2xl text-deep-orange-900 font-semibold mt-2 mx-5">
+                  <h3 className="text-2xl text-deep-orange-900 font-semibold mt-2 mx-3">
                     {serviceDetail.serviceName}
                   </h3>
-                  <h3 className="text-base font-light  mx-5 text-black">
-                    {serviceDetail.description}
+                  <h3 className="text-base font-light  mx-3 text-black">
+                    {serviceDetail.description.length > 100
+                      ? `${serviceDetail.description.substring(0, 100)}...`
+                      : serviceDetail.description}
                   </h3>
 
-                  <h3 className="text-base font-light mt-3 mx-5 text-black">
+                  <h3 className="text-base font-light mt-3 mx-3 text-black">
                     {serviceDetail.serviceArea}
                   </h3>
-                  <h3 className="text-base  font-medium mx-5 text-green-500">
+                  <h3 className="text-base  font-medium mx-3 text-green-500">
                     Price: ${serviceDetail.price}
                   </h3>
-                  <div className="flex items-center mt-4 mb-3 mx-5 gap-3">
+                  <div className="flex items-center mt-4 mb-3 mx-3 gap-3">
                     <img
                       className="h-12 w-12 rounded-full"
                       src={serviceDetail.authorPhoto}

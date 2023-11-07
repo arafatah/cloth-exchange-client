@@ -64,13 +64,13 @@ const UpdateService = () => {
     <div>
       <div className="flex items-center justify-center py-6">
         <h2
-          className="text-3xl text-green-500 font-semibold bg-black rounded-lg px-6 py-4
+         className="text-3xl font-bold bg-black rounded-lg p-4 text-white shadow-lg
                 "
         >
-          Update A ITEM HERE...
+          Update Your Service Details..
         </h2>
       </div>
-      <div className="container mx-auto">
+      <div className="container my-5 mx-auto">
         <form onSubmit={handleSubmit}>
           <div className="relative z-0 w-full mb-6 group">
             <input
@@ -93,6 +93,7 @@ const UpdateService = () => {
                 name="yourName"
                 id="yourName"
                 defaultValue={yourName}
+                readOnly
                 className="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                 placeholder=" "
                 required

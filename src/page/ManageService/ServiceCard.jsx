@@ -7,7 +7,7 @@ const ServiceCard = ({ serviceDetail, handleDelete }) => {
   return (
     <div>
       <div className="bg-white rounded-lg shadow-md overflow-hidden">
-        <img className="w-full h-48 object-cover" src={image} alt="" />
+        <img className="w-full h-[500px] object-cover" src={image} alt="" />
 
         <div className="px-6 py-4">
           <h3 className="text-lg font-semibold mb-2">{serviceName}</h3>
