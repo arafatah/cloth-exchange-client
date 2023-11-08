@@ -16,7 +16,7 @@ const ShowCart = () => {
   const { user } = useContext(AuthContext);
   //  console.log(cart);
   useEffect(() => {
-    fetch(`https://backend-server-omega.vercel.app/orders/${user?.email}`)
+    fetch(`https://fashion-server-nine.vercel.app/orders/${user?.email}`,{credentials: 'include'} )
       .then((res) => res.json())
       .then((data) => {
         setCart(data);
@@ -27,7 +27,7 @@ const ShowCart = () => {
   }, [user]);
 
   useEffect(() => {
-    fetch(`https://backend-server-omega.vercel.app/serviceMail/${user?.email}`)
+    fetch(`https://fashion-server-nine.vercel.app/serviceMail/${user?.email}`,{credentials: 'include'} )
       .then((res) => res.json())
       .then((data) => {
         setAllCart(data);
@@ -35,7 +35,7 @@ const ShowCart = () => {
   }, [user]);
 
   const handleDelete = (itemId) => {
-    fetch(`https://backend-server-omega.vercel.app/deleteOrder/${itemId}`, {
+    fetch(`https://fashion-server-nine.vercel.app/deleteOrder/${itemId}`, {
       method: "DELETE",
     })
       .then((response) => response.json())
@@ -49,7 +49,7 @@ const ShowCart = () => {
   };
 
   const handleBookingConfirm = (id, newStatus) => {
-    fetch(`https://backend-server-omega.vercel.app/updateOrder/${id}`, {
+    fetch(`https://fashion-server-nine.vercel.app/updateOrder/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

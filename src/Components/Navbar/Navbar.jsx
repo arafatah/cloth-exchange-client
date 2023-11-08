@@ -124,7 +124,7 @@ const Navbar = () => {
 
           {user?.email ? (
             <div>
-              <div className="dropdown dropdown-bottom dropdown-end">
+              <div className="dropdown text-white dropdown-bottom dropdown-end">
                 <label tabIndex={0} className="">
                   {userPic ? (
                     <img

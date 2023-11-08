@@ -39,7 +39,7 @@ const SingleService = () => {
 
     console.log(service);
 
-    fetch("https://backend-server-omega.vercel.app/addOrder", {
+    fetch("https://fashion-server-nine.vercel.app/addOrder", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(service),

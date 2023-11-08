@@ -30,7 +30,7 @@ const AddService = () => {
       authorPhoto
     };
 
-    fetch("https://backend-server-omega.vercel.app/addService", {
+    fetch("https://fashion-server-nine.vercel.app/addService", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(service),

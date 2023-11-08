@@ -37,7 +37,7 @@ const UpdateService = () => {
       image,
     };
 
-    fetch(`https://backend-server-omega.vercel.app/update/${_id}`, {
+    fetch(`https://fashion-server-nine.vercel.app/update/${_id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(service),

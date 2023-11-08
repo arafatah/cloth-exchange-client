@@ -9,6 +9,7 @@ import {
   signOut,
 } from "firebase/auth";
 import app from "../../Config/firebase.config";
+import axios from "axios";
 
 export const AuthContext = createContext();
 
@@ -46,13 +47,32 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       console.log("user in the state change", currentUser);
+      const userEmail = currentUser?.email || user.email;
+      const loggedEmail = { email: userEmail };
       setUser(currentUser);
       setLoading(false);
+      if (currentUser) {
+        axios
+          .post("https://fashion-server-nine.vercel.app/jwt", loggedEmail, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            console.log(res.data);
+          });
+      } else {
+        axios.post("https://fashion-server-nine.vercel.app/logout", loggedEmail, {
+          withCredentials: true,
+        })
+        .then((res) => {
+          console.log(res.data);
+        });
+
+      }
     });
     return () => {
       unSubscribe();
     };
-  }, []);
+  }, [user]);
 
   const authInfo = {
     user,
@@ -64,9 +84,7 @@ const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={authInfo}>
-        {children}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );
 };
 
