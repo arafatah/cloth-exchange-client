@@ -10,16 +10,20 @@ const Banner = () => {
     <div className="container mx-auto mt-6">
       <div className="flex item-center justify-center bg-[#F4F6F5] rounded-2xl pt-20">
         <div className="flex items-center justify-center ">
-          <div className="w-[736px] pl-12 space-y-4 mb-5">
-            <h2 className="text-8xl font-black text-black">
+          <div className="md:w-[736px] md:pl-12 space-y-4 mb-5">
+            <h2 className="md:text-8xl text-6xl pl-3 font-black text-black">
               <span className="p-4 bg-white">LET’S</span> EXPLORE{" "}
               <span className="bg-[#EBD96B] px-4">UNIQUE</span> CLOTHES.
             </h2>
-            <span className="font-normal text-3xl text-gray-900">
-              Live for Influential and <span><Typewriter
-              words={['Unique', 'Influential', 'Trendy']}
-              loop={Infinity}
-              /></span><Cursor />
+            <span className="font-normal pl-3 md:text-3xl text-gray-900">
+              Live for Influential and{" "}
+              <span>
+                <Typewriter
+                  words={["Unique", "Influential", "Trendy"]}
+                  loop={Infinity}
+                />
+              </span>
+              <Cursor />
             </span>
             <div className="flex items-center mt-4 gap-7">
               <div>
@@ -44,6 +48,7 @@ const Banner = () => {
         </div>
         <div>
           <img
+            className="md:w-[736px] md:h-[550px] hidden md:block "
             src="https://i.ibb.co/xhypVgz/incendiary-fantastically-beautiful-girl-coat-eco-fur-moves-fun-picture-lovely-lady-pink-clothes-remo.png"
             alt=""
           />

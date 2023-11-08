@@ -16,7 +16,7 @@ const SuggestionSection = () => {
           </div>
           <button
             type="submit"
-            className="absolute top-[227px] left-[1193px] btn px-8"
+            className="absolute top-[460px] left-[160px] lg:top-[227px] lg:left-[1193px] btn px-8"
           >
             Submit
           </button>

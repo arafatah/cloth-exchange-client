@@ -10,7 +10,7 @@ const ManageService = () => {
   const [cartItems, setCartItems] = useState([]);
   console.log(cartItems);
   useEffect(() => {
-    fetch(`http://localhost:5000/services/${user?.email}`)
+    fetch(`https://backend-server-omega.vercel.app/services/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setServices(data);
@@ -29,7 +29,7 @@ const ManageService = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/delete/${itemId}`, {
+        fetch(`https://backend-server-omega.vercel.app/delete/${itemId}`, {
           method: "DELETE",
         })
           .then((response) => response.json())

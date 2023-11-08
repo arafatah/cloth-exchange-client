@@ -30,7 +30,7 @@ const Routes = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/services"),
+        loader: () => fetch("https://backend-server-omega.vercel.app/services"),
       },
       {
         path: "addService",
@@ -43,12 +43,12 @@ const Routes = createBrowserRouter([
       {
         path: "/",
         element: <ShowService></ShowService>,
-        loader: () => fetch("http://localhost:5000/services"),
+        loader: () => fetch("https://backend-server-omega.vercel.app/services"),
       },
       {
         path: "/services",
         element: <ShowAllService></ShowAllService>,
-        loader: () => fetch("http://localhost:5000/services"),
+        loader: () => fetch("https://backend-server-omega.vercel.app/services"),
       },
       {
         path: "showService/:id",
@@ -58,7 +58,7 @@ const Routes = createBrowserRouter([
           </PrivetsRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/service/${params.id}`),
+          fetch(`https://backend-server-omega.vercel.app/service/${params.id}`),
       },
       {
         path: "/cart",
@@ -67,7 +67,7 @@ const Routes = createBrowserRouter([
             <ShowCart></ShowCart>
           </PrivetsRoutes>
         ),
-        loader: () => fetch("http://localhost:5000/orders"),
+        loader: () => fetch("https://backend-server-omega.vercel.app/orders"),
       },
       {
         path: "/manageService",
@@ -84,7 +84,7 @@ const Routes = createBrowserRouter([
             <UpdateService />
           </PrivetsRoutes>
         ),
-        loader: ({params}) => fetch(`http://localhost:5000/service/${params.id}`),
+        loader: ({params}) => fetch(`https://backend-server-omega.vercel.app/service/${params.id}`),
       },
     ],
   },

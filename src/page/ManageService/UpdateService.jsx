@@ -37,7 +37,7 @@ const UpdateService = () => {
       image,
     };
 
-    fetch(`http://localhost:5000/update/${_id}`, {
+    fetch(`https://backend-server-omega.vercel.app/update/${_id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(service),
