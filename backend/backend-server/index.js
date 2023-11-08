@@ -117,12 +117,7 @@ app.get("/services", async (req, res) => {
 });
 
 // get single service api here
-app.get("/service/:id", verifyToken, async (req, res) => {
-  console.log('Token user info here', req.user.email);
-  console.log("|hello", req.params.email);
-  // if(req.user.email !== req.params.email){
-  //   return res.status(403).send({message: 'forbidden'});
-  // }
+app.get("/service/:id", async (req, res) => {
   const id = req.params.id;
   const query = { _id: new ObjectId(id) };
   const service = await serviceCollection.findOne(query);
@@ -130,7 +125,7 @@ app.get("/service/:id", verifyToken, async (req, res) => {
 });
 
 // get single service by email api here
-app.get("/services/:email", verifyToken, async (req, res) => {
+app.get("/services/:email", async (req, res) => {
   const email = req.params.email;
   const query = { email: email };
   const cursor = serviceCollection.find(query);
@@ -180,7 +175,7 @@ app.delete("/deleteOrder/:id", async (req, res) => {
   res.json(result);
 });
 
-app.get("/orders", verifyToken, async (req, res) => {
+app.get("/orders", async (req, res) => {
   const cursor = cartCollection.find({});
   const orders = await cursor.toArray();
   res.send(orders);
